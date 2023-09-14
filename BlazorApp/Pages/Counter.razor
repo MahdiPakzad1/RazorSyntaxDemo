@@ -1,0 +1,38 @@
+﻿@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<p @onmouseover="IncrementCount">
+    @test <br/>
+    @@IAmTimCorey <br />
+    @(i + j) <br />
+    @{
+        var k = i * j;
+    }
+    @k <br />
+    @("<h1>This is a big Test</h1>")
+    @*
+        //For MVC/Razor Pages
+    @Html.Raw("<h1>This is a big Test</h1>")
+    *@
+    @((MarkupString)"<h1>This is a big Test</h1>")
+</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private string test = "This is a test";
+    private int i = 5;
+    private int j = 6;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
